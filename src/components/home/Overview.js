@@ -4,11 +4,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Nav from "./Nav";
 import "../../styles/Overview.css";
+import FundChart from "./FundChart";
 
 function Overview() {
   const { id } = useParams();
   const [fund, setFund] = useState([]);
   const baseURL = " https://api.mfapi.in/mf/"; //100121
+
   useEffect(() => {
     axios
       .get(`${baseURL}${id}`)
@@ -16,12 +18,11 @@ function Overview() {
       .catch((err) => compose.log(err));
   }, [baseURL, id]);
 
-  console.log(fund);
-
   return (
     <div>
       {fund.length > 0 ? (
         <div className="container">
+          <FundChart fundData={fund} />
           {fund.map((fund, i) => (
             <div key={fund.data.meta.scheme_code}>
               <div key={i} className="overview">
@@ -51,6 +52,7 @@ function Overview() {
       ) : (
         <h3>Loading...</h3>
       )}
+
       <Nav />
     </div>
   );
