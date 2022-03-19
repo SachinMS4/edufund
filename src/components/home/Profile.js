@@ -87,6 +87,7 @@ function Profile() {
               ref={passwordRef}
               placeholder="Your Password"
               defaultValue={user.password}
+              autoComplete="on"
             />
           </div>
           <button>Update Profile</button>

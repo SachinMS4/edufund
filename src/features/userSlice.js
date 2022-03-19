@@ -4,7 +4,7 @@ const initialState = {
   value: [
     {
       email: "guest@gmail.com",
-      password: "12345",
+      password: "12345678",
       dob: "10-03-2000",
       gender: "male",
       name: "Guest",

@@ -33,6 +33,7 @@ function SignIn() {
           type="email"
           placeholder="Enter Your Email"
           ref={emailRef}
+          defaultValue="guest@gmail.com"
           required
         />
       </div>
@@ -41,6 +42,8 @@ function SignIn() {
           type="password"
           placeholder="Enter Your Password"
           ref={passwordRef}
+          defaultValue="12345678"
+          autoComplete="on"
           required
         />
       </div>
