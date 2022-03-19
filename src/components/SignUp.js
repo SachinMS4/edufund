@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addUser } from "../features/userSlice";
 import "../styles/SignIn.css";
 
@@ -11,7 +11,7 @@ function SignUp() {
   const dobRef = useRef();
   const genderRef = useRef();
   const nameRef = useRef();
-
+  const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
     const [email, password, name, gender, dob] = [
@@ -21,53 +21,32 @@ function SignUp() {
       genderRef.current.value,
       dobRef.current.value,
     ];
-    console.log({ email, password, name, gender, dob });
 
     dispatch(addUser({ email, password, name, gender, dob }));
+    navigate("/signin");
   }
 
   return (
     <form onSubmit={handleSubmit} className="sign-box">
       <div>
-        <input
-          type="email"
-          ref={emailRef}
-          placeholder="Your Email"
-          // required
-        />
+        <input type="email" ref={emailRef} placeholder="Your Email" required />
       </div>
       <div>
-        <input
-          type="text"
-          ref={nameRef}
-          placeholder="Your Name"
-          // required
-        />
+        <input type="text" ref={nameRef} placeholder="Your Name" required />
       </div>
       <div>
-        <input
-          type="date"
-          ref={dobRef}
-          placeholder="Date of Birth"
-          // required
-        />
+        <input type="date" ref={dobRef} placeholder="Date of Birth" required />
       </div>
       <div>
-        <input
-          type="text"
-          ref={genderRef}
-          placeholder="Your Gender"
-          // required
-        />
+        <input type="text" ref={genderRef} placeholder="Your Gender" required />
       </div>
       <div>
         <input
           type="password"
           ref={passwordRef}
           placeholder="Your Password"
-          // minLength="8"
-
-          // required
+          minLength="8"
+          required
         />
       </div>
       <button>Sign Up</button>

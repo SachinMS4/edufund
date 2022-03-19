@@ -10,7 +10,6 @@ function SignIn() {
   const navigate = useNavigate();
 
   const users = useSelector((state) => state.users.value);
-  console.log(users);
 
   function submitHandler(e) {
     e.preventDefault();
@@ -33,13 +32,17 @@ function SignIn() {
         <input
           type="email"
           placeholder="Enter Your Email"
-          ref={emailRef}></input>
+          ref={emailRef}
+          required
+        />
       </div>
       <div>
         <input
           type="password"
           placeholder="Enter Your Password"
-          ref={passwordRef}></input>
+          ref={passwordRef}
+          required
+        />
       </div>
       <button>Sign In</button>
       <h4>

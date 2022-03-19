@@ -24,7 +24,11 @@ function Home() {
 
   return (
     <div className="home">
-      {fundsData.length > 0 && <List fundsData={fundsData} />}
+      {fundsData.length > 0 ? (
+        <List fundsData={fundsData} />
+      ) : (
+        <h3> Loading...</h3>
+      )}
       <Nav />
     </div>
   );

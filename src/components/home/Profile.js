@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addUser } from "../../features/userSlice";
 import Nav from "./Nav";
 
@@ -30,9 +31,17 @@ function Profile() {
     setMsg("Profile Updated");
     dispatch(addUser({ email, password, name, gender, dob }));
   }
+  const navigate = useNavigate();
+  function logout(e) {
+    localStorage.clear();
+    navigate("/signin");
+  }
 
   return (
     <div>
+      <button className="logout" onClick={logout}>
+        Logout
+      </button>
       {user && (
         <form onSubmit={handleSubmit} className="sign-box">
           {msg && <h4>{msg}</h4>}
