@@ -1,10 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import { Line } from "react-chartjs-2";
-import { Chart as ChartJS } from "chart.js/auto";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
 function FundChart({ fundData }) {
   const len = fundData[0].data.data.length;
   const linePoint = fundData[0].data.data;
+
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  );
 
   const chartData = [
     linePoint[len - 1],
@@ -13,6 +32,9 @@ function FundChart({ fundData }) {
     linePoint[parseInt(len / 2)],
     linePoint[0],
   ];
+
+  /* eslint-disable no-unused-vars */
+  /* eslint-enable no-unused-vars */
 
   const options = {
     responsive: true,
@@ -26,7 +48,7 @@ function FundChart({ fundData }) {
     },
   };
 
-  const [userData, setUserData] = useState({
+  const userData = {
     labels: chartData.map((data) => data.date.slice(3)),
     datasets: [
       {
@@ -43,7 +65,7 @@ function FundChart({ fundData }) {
         borderWidth: 2,
       },
     ],
-  });
+  };
   return (
     <div className="overview line-chart">
       <Line options={options} data={userData} />
