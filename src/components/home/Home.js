@@ -4,9 +4,17 @@ import axios from "axios";
 import "../../styles/Footer.css";
 import Nav from "./Nav";
 import List from "./List";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [fundsData, setFundsData] = useState([]);
+  const user = localStorage.getItem("email");
+  console.log(user);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!user) navigate("/signin");
+  });
 
   useEffect(() => {
     const endpoints = [

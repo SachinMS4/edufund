@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../../features/userSlice";
@@ -36,6 +36,10 @@ function Profile() {
     localStorage.clear();
     navigate("/signin");
   }
+
+  useEffect(() => {
+    if (!currentUser) navigate("/signin");
+  }, [currentUser, navigate]);
 
   return (
     <div>
