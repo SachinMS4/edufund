@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 75px;
+  margin: 25px 0 75px;
 }
 
 .card {
@@ -49,10 +49,6 @@
 .overview .fund-attributes h3 {
   font-weight: 400;
   padding: 0 5px;
-}
-
-div .line-chart {
-  height: 100%;
 }
 
 @media screen and (min-width: 728px) {

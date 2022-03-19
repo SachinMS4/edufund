@@ -6,7 +6,6 @@ import Home from "./components/home/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Profile from "./components/home/Profile";
 import Overview from "./components/home/Overview";
-import FundChart from "./components/home/FundChart";
 
 function App() {
   return (

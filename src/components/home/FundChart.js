@@ -45,7 +45,7 @@ function FundChart({ fundData }) {
     ],
   });
   return (
-    <div className="card line-chart">
+    <div className="overview line-chart">
       <Line options={options} data={userData} />
     </div>
   );
