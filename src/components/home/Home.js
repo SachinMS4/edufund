@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 function Home() {
   const [fundsData, setFundsData] = useState([]);
   const user = localStorage.getItem("email");
-  console.log(user);
 
   const navigate = useNavigate();
   useEffect(() => {

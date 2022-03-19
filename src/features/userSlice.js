@@ -20,7 +20,7 @@ const userSlice = createSlice({
       return state;
     },
     addUser: (state, action) => {
-      state.values.push(action.payload);
+      state.value.push(action.payload);
     },
   },
 });
